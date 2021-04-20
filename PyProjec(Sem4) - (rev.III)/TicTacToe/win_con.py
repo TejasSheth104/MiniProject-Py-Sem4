@@ -34,7 +34,7 @@ def win_cond(terminate,player1,player2,counter):
                 terminate=True
                 return terminate
 
-            elif counter%9==0:
+            elif counter%9!=0:
                 showinfo("RESULT - ","It's a DRAW. !!!")
                 terminate=True
                 return terminate

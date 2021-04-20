@@ -56,8 +56,8 @@ def main_body():
     input_name2=Entry(frame_detail)
     input_name2.grid(row=2,column=3)
 
-    opt_user=Button(frame_detail, text="SUBMIT", font=('arial',10,'bold') ,width=18,height=1, command=lambda: submit(input_name1,input_name2,frame_main,frame_pUser))
-    opt_user.grid(row=3, columnspan=4,sticky='nsew')
+    submit_detail=Button(frame_detail, text="SUBMIT", font=('arial',10,'bold') ,width=18,height=1, command=lambda: submit(input_name1,input_name2,frame_main,frame_pUser))
+    submit_detail.grid(row=3, columnspan=4,sticky='nsew')
 #==================Frame Main code
     
     opt_user=Button(frame_main, text="User v User", font=('arial',10,'bold') ,width=18,height=1, command=lambda:show_frame(frame_pUser))

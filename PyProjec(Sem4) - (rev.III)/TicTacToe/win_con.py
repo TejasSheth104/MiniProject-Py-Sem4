@@ -2,9 +2,9 @@ from tkinter import *
 from tkinter.messagebox import *
 from itertools import permutations
 
-
+# count=0
 def win_cond(terminate,player1,player2,counter):
-
+    # global count
 # generates every Winning Possibility using inbuilt Permutation Function.    
     poss_1=permutations([1,2,3])
     poss_2=permutations([3,5,7])
@@ -14,7 +14,7 @@ def win_cond(terminate,player1,player2,counter):
     poss_6=permutations([1,4,7])
     poss_7=permutations([2,5,8])
     poss_8=permutations([3,6,9])
-    
+    # count+=1
     for i in poss_1,poss_2,poss_3,poss_4,poss_5,poss_6,poss_7,poss_8:
     
         for j in list(i):
@@ -23,7 +23,7 @@ def win_cond(terminate,player1,player2,counter):
             play1=all(poss in player1 for poss in j)
             play2=all(poss in player2 for poss in j)
             # draw=all(poss in player1 for poss in j) or all(poss in player2 for poss in j)
-
+            
             if play1:
                 showinfo("RESULT - ","Player 1 WINS. !!!")
                 terminate=True
@@ -34,7 +34,7 @@ def win_cond(terminate,player1,player2,counter):
                 terminate=True
                 return terminate
 
-            elif counter%9!=0:
+            elif counter%9==0:
                 showinfo("RESULT - ","It's a DRAW. !!!")
                 terminate=True
                 return terminate

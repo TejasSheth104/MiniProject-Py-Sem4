@@ -1,11 +1,11 @@
 from tkinter import *
 
-counter_comp,counter_user=0,0
+# counter_comp,counter_user=0,0
 
-def chance_user(player1,player2,box_num,button_play1,button_play2):
+def chance_user(player1,player2,box_num,button_play1,button_play2,counter_user):
 
-    global counter_user
-
+    # global counter_user
+    print(counter_user)
 # iterate over 1 to 9, to Toggle Button and Check for Players Chance
     for box_num_value in range(1,10):
     
@@ -25,9 +25,9 @@ def chance_user(player1,player2,box_num,button_play1,button_play2):
                 button_play1.config(state=ACTIVE)           # enable button 1
                 return 'O',counter_user
 
-def chance_comp(player1,player2,box_num,button_play1,button_play2):
+def chance_comp(player1,player2,box_num,button_play1,button_play2,counter_comp):
     
-    global counter_comp
+    # global counter_comp
 
 # iterate over 1 to 9, to Toggle Button and Check for Players Chance
     for box_num_value in range(1,10):

@@ -32,7 +32,7 @@ def key_press_user(window,box_num,place_value,button_play1,button_play2):
 
 # if value of dictionary is 1 already(returning Value FALSE.), no change takes place.
     if limit_keypress_user(keypress_count_user,box_num):
-        p_val_user,counter=chance.chance_user(player1,player2,box_num,button_play1,button_play2)
+        p_val_user,counter_user=chance.chance_user(player1,player2,box_num,button_play1,button_play2,counter_user)
         place_value.set(p_val_user)
 
 # sets the value (X/O) at respective position.        
@@ -71,7 +71,7 @@ def key_press_comp(window,box_num,place_value,button_play1,button_play2):
     if chance.who_plays()=='X':
 # if value of dictionary is 1 already(returning Value FALSE.), no change takes place.
         if limit_keypress_comp(keypress_count_comp,box_num):
-            p_val_comp,counter=chance.chance_comp(player,computer,box_num,button_play1,button_play2)
+            p_val_comp,counter_comp=chance.chance_comp(player,computer,box_num,button_play1,button_play2,counter_comp)
             place_value.set(p_val_comp)
 
 # sets the value (X/O) at respective position.        

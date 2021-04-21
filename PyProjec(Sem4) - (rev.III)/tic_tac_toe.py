@@ -10,7 +10,7 @@ def submit(input_name1,input_name2,frame_main,frame_pUser):
     name_val1=input_name1.get()
     name_val2=input_name2.get()
 
-    frame_main.tkraise()
+    frame_pUser.tkraise()
 #==================Frame User code
     button_play_user1=Button(frame_pUser, text=str(name_val1+"'X'"), font=('arial',10,'bold') ,width=18,height=1)
     button_play_user1.grid(row=3, columnspan=4,sticky='w')
@@ -45,13 +45,13 @@ def main_body():
 
 #==================Name Frame
     # First Row
-    name1=Label(frame_detail,text= "Player Name")
+    name1=Label(frame_detail,text= "Player1 Name")
     name1.grid(row=1,column=2,sticky='w')
     input_name1=Entry(frame_detail)
     input_name1.grid(row=1,column=3)
 
     # Second Row
-    name2=Label(frame_detail,text= "Player Name")
+    name2=Label(frame_detail,text= "Player2 Name")
     name2.grid(row=2,column=2,sticky='w')
     input_name2=Entry(frame_detail)
     input_name2.grid(row=2,column=3)
@@ -60,7 +60,7 @@ def main_body():
     submit_detail.grid(row=3, columnspan=4,sticky='nsew')
 #==================Frame Main code
     
-    opt_user=Button(frame_main, text="User v User", font=('arial',10,'bold') ,width=18,height=1, command=lambda:show_frame(frame_pUser))
+    opt_user=Button(frame_main, text="User v User", font=('arial',10,'bold') ,width=18,height=1, command=lambda:show_frame(frame_detail))
     opt_user.grid(row=1, columnspan=4,sticky='w')
 
     opt_comp=Button(frame_main, text="User v Comp", font=('arial',10,'bold') ,width=18,height=1, command=lambda:show_frame(frame_pComp))
@@ -90,7 +90,7 @@ def main_body():
     exit_comp=Button(frame_pComp, bg='black', fg='red', text="BACK", command=lambda:show_frame(frame_main), font=('arial',10,'bold') ,width=18,height=1)
     exit_comp.grid(row=8,columnspan=4,sticky='nsew')
 
-    show_frame(frame_detail)
+    show_frame(frame_main)
 
     window.mainloop()
 

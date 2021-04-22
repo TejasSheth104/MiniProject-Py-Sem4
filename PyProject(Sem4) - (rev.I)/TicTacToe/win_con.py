@@ -2,9 +2,16 @@ from tkinter import *
 from tkinter.messagebox import *
 from itertools import permutations
 
-# count=0
-def win_cond(terminate,player1,player2,counter):
-    # global count
+def check_draw(keypress_count):
+    for value in keypress_count.values():
+        if value==0:
+            return False
+        elif value==1:
+            continue
+    return True
+
+def win_cond(terminate,player1,player2,counter,keypress_count,name_val1,name_val2):
+
 # generates every Winning Possibility using inbuilt Permutation Function.    
     poss_1=permutations([1,2,3])
     poss_2=permutations([3,5,7])
@@ -14,7 +21,7 @@ def win_cond(terminate,player1,player2,counter):
     poss_6=permutations([1,4,7])
     poss_7=permutations([2,5,8])
     poss_8=permutations([3,6,9])
-    # count+=1
+    
     for i in poss_1,poss_2,poss_3,poss_4,poss_5,poss_6,poss_7,poss_8:
     
         for j in list(i):
@@ -23,30 +30,19 @@ def win_cond(terminate,player1,player2,counter):
             play1=all(poss in player1 for poss in j)
             play2=all(poss in player2 for poss in j)
             # draw=all(poss in player1 for poss in j) or all(poss in player2 for poss in j)
-            
             if play1:
-                showinfo("RESULT - ","Player 1 WINS. !!!")
+                showinfo("RESULT - ",str(name_val1+" WINS. !!!"))
                 terminate=True
                 return terminate
     
             elif play2:
-                showinfo("RESULT - ","Player 2 WINS. !!!")
+                showinfo("RESULT - ",str(name_val2+" WINS. !!!"))
                 terminate=True
                 return terminate
 
-            elif counter%9==0:
-                showinfo("RESULT - ","It's a DRAW. !!!")
+            elif check_draw(keypress_count):
+                showinfo("RESULT - ",str(" DRAW "))
                 terminate=True
                 return terminate
     
-            # temp_var=0
-            # for value in keypress_count.values():
-            #     if value==1:
-            #         temp_var=1
-            #     else:
-            #         temp_var=0
-            #         break
-            # if temp_var==1:
-            #     showinfo("RESULT - ","It's a DRAW. !!!")
-            #     terminate=True
-            #     return terminate
+            

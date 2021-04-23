@@ -19,6 +19,8 @@ def submit(input_name1,input_name2,frame_main,frame_player):
     play_user2=Button(frame_player, text=str(name_val2+" = O "), font=('arial',20,'bold') ,width=19,height=1,relief="sunken",state=DISABLED)
     play_user2.grid(row=2, columnspan=4,sticky='e')
 
+# a 3x3 grid to play on.
+# passing 2 buttons as parameters to help toggle at every chance.
     draw_grid.draw_grid(frame_player,play_user1,play_user2,name_val1,name_val2)
 
     back_main=Button(frame_player, bg='black', fg='red', text="BACK", command=lambda:show_frame(frame_main), font=('arial',20,'bold') ,width=19,height=1)
@@ -56,34 +58,9 @@ def main_body():
     t=Button(frame_main, bg='black', fg='red', text="START", bd=1,relief="sunken", font=('arial',20,'bold') ,width=19,height=1, command=lambda: submit(input_name1,input_name2,frame_main,frame_player))
     t.grid(row=4, columnspan=4)
 
+# exit button to terminate program immediately
     quit_button=Button(frame_main, bg='black', fg='red', text="EXIT",bd=1, relief="sunken" ,font=('arial',20,'bold'), command=window.destroy ,width=19,height=1)
     quit_button.grid(row=5,columnspan=4)
-
-
-    # terminate=False
-    # counter=0
-    # p_val=""
-    # player1,player2=list(),list()
-    # keypress_count={1:0,2:0,3:0,4:0,5:0,6:0,7:0,8:0,9:0}
-
-# #==================Frame Main code
-# # Highlighted Button, implies that players turn to play.
-#     button_play1=Button(frame_main, text="Player1: 'X'", font=('arial',10,'bold') ,width=18,height=1)
-#     button_play1.grid(row=1, columnspan=4,sticky='w')
-
-#     button_play2=Button(frame_main, text="Player2: 'O'", font=('arial',10,'bold') ,width=18,height=1,state=DISABLED)
-#     button_play2.grid(row=1, columnspan=4,sticky='e')
-
-# # a 3x3 grid to play on.
-# # passing button1 and button2 as parameters to help toggle at every chance.
-#     draw_grid.draw_grid(frame_main,button_play1,button_play2)
-
-#     # reset_button=Button(window, bg='black', fg='red', text="RESET", command=main_body, font=('arial',10,'bold') ,width=18,height=1)
-#     # reset_button.grid(row=8,columnspan=4,sticky='w')
-
-# # exit button to terminate program immediately
-#     quit_button=Button(frame_main, bg='black', fg='red', text="EXIT", command=window.destroy, font=('arial',10,'bold') ,width=18,height=1)
-#     quit_button.grid(row=8,columnspan=4,sticky='e')
 
     show_frame(frame_main)
 

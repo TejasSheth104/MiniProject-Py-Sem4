@@ -2,6 +2,7 @@ from tkinter import *
 from tkinter.messagebox import *
 from itertools import permutations
 
+# check if Dictionary Values are all 1 or not?
 def check_draw(keypress_count):
     for value in keypress_count.values():
         if value==0:

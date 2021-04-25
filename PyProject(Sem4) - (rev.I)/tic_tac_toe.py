@@ -41,8 +41,8 @@ def main_body():
 
 #==================Frame Main code
     # First Row
-    wel=Label(frame_main,text= "TIC TAC TOE" ,bg='black', fg='red',bd=1,relief="sunken",font=('arial',20,'bold') ,width=19,height=2)
-    wel.grid(row=1,columnspan=4)
+    welcome_label=Label(frame_main,text= "TIC TAC TOE" ,bg='black', fg='red',bd=1,relief="sunken",font=('arial',20,'bold') ,width=19,height=2)
+    welcome_label.grid(row=1,columnspan=4)
 
     name1=Label(frame_main,text= "Player 1" ,font=('arial',15,'bold') ,width=15,height=5)
     name1.grid(row=2,column=1,sticky='w')
@@ -55,8 +55,8 @@ def main_body():
     input_name2=Entry(frame_main,bd="5" ,relief="sunken")
     input_name2.grid(row=3,column=2)
 
-    t=Button(frame_main, bg='black', fg='red', text="START", bd=1,relief="sunken", font=('arial',20,'bold') ,width=19,height=1, command=lambda: submit(input_name1,input_name2,frame_main,frame_player))
-    t.grid(row=4, columnspan=4)
+    start_button=Button(frame_main, bg='black', fg='red', text="START", bd=1,relief="sunken", font=('arial',20,'bold') ,width=19,height=1, command=lambda: submit(input_name1,input_name2,frame_main,frame_player))
+    start_button.grid(row=4, columnspan=4)
 
 # exit button to terminate program immediately
     quit_button=Button(frame_main, bg='black', fg='red', text="EXIT",bd=1, relief="sunken" ,font=('arial',20,'bold'), command=window.destroy ,width=19,height=1)

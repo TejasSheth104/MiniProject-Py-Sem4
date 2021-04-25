@@ -1,34 +1,12 @@
 
 # file open
-def score_save(option,player_name,score):
-    if option==3:
-        try:
-            fh=open('score.txt','a')
-        # print("Success")
-
-            file_write=(player_name+", "+str(score)+"\n")
-            fh.write(file_write)
-            fh.close()
-        except FileNotFoundError:
-            print("File Not Found")
-
-    fh=open('score.txt','r')
-    if option==1:
-        for line in fh:
-            print(line)
-    elif option==2:
-        pass
-    elif option==3:
-        for line in fh:
-            line=line.split(', ')
-            if line[0]==player_name:
-                print(line[1])
-
-    fh.close()
-
-    # print("Done")
-
-score_save(3,'raj',15)
+def score_save(player_name):
+    try:
+        fh=open('score.txt','a')
+        fh.write(player_name+", \n")
+        fh.close()
+    except FileNotFoundError:
+        print("File Not Found")
 
 '''
 can remove draw condition, if storing just scores for winning.
@@ -48,3 +26,32 @@ score -
 # (list? )
 name_Winning_player, score
 '''
+
+#     if option==3:
+#         try:
+#             fh=open('score.txt','a')
+#         # print("Success")
+
+#             file_write=(player_name+", "+str(score)+"\n")
+#             fh.write(file_write)
+#             fh.close()
+#         except FileNotFoundError:
+#             print("File Not Found")
+
+#     fh=open('score.txt','r')
+#     if option==1:
+#         for line in fh:
+#             print(line)
+#     elif option==2:
+#         pass
+#     elif option==3:
+#         for line in fh:
+#             line=line.split(', ')
+#             if line[0]==player_name:
+#                 print(line[1])
+
+#     fh.close()
+
+#     # print("Done")
+
+# score_save('tejas',15)

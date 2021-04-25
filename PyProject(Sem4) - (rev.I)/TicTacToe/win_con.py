@@ -1,6 +1,7 @@
 from tkinter import *
 from tkinter.messagebox import *
 from itertools import permutations
+from TicTacToe import score_file
 
 # check if Dictionary Values are all 1 or not?
 def check_draw(keypress_count):
@@ -34,16 +35,17 @@ def win_cond(terminate,player1,player2,counter,keypress_count,name_val1,name_val
             if play1:
                 showinfo("RESULT - ",str(name_val1+" WINS. !!!"))
                 terminate=True
+                score_file.score_save(name_val1)
                 return terminate
     
             elif play2:
                 showinfo("RESULT - ",str(name_val2+" WINS. !!!"))
                 terminate=True
+                score_file.score_save(name_val2)
                 return terminate
 
-            elif check_draw(keypress_count):
-                showinfo("RESULT - ",str(" DRAW "))
-                terminate=True
-                return terminate
-    
+            # elif check_draw(keypress_count):
+            #     showinfo("RESULT - ",str(" DRAW "))
+            #     terminate=True
+            #     return terminate
             

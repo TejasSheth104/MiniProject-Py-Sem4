@@ -19,7 +19,7 @@ def limit_keypress(keypress_count,box_key):
     else:
         return False
 
-def key_press(frame_player,box_num,place_value,button_play1,button_play2,name_val1,name_val2):
+def key_press(frame_player,box_num,place_value,button_play1,button_play2,name_val1,name_val2,back_main):
 
     global counter,keypress_count,player1,player2,terminate,p_val
 
@@ -27,6 +27,8 @@ def key_press(frame_player,box_num,place_value,button_play1,button_play2,name_va
     if limit_keypress(keypress_count,box_num):
         p_val,counter=chance.chance(player1,player2,box_num,button_play1,button_play2)
         place_value.set(p_val)
+
+        back_main.config(state=DISABLED)
 
 # sets the value (X/O) at respective position.        
         if win_con.win_cond(terminate,player1,player2,counter,keypress_count,name_val1,name_val2):
@@ -39,7 +41,7 @@ def key_press(frame_player,box_num,place_value,button_play1,button_play2,name_va
                 p_val=""
                 player1,player2=list(),list()
                 keypress_count={1:0,2:0,3:0,4:0,5:0,6:0,7:0,8:0,9:0}
-                draw_grid.draw_grid(frame_player,button_play1,button_play2,name_val1,name_val2)
+                draw_grid.draw_grid(frame_player,button_play1,button_play2,name_val1,name_val2,back_main)
 
 # thank you message and exit.
             elif msg=='no':

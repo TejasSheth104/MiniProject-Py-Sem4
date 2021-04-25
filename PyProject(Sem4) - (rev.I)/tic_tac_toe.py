@@ -19,12 +19,12 @@ def submit(input_name1,input_name2,frame_main,frame_player):
     play_user2=Button(frame_player, text=str(name_val2+" = O "), font=('arial',20,'bold') ,width=19,height=1,relief="sunken",state=DISABLED)
     play_user2.grid(row=2, columnspan=4,sticky='e')
 
-# a 3x3 grid to play on.
-# passing 2 buttons as parameters to help toggle at every chance.
-    draw_grid.draw_grid(frame_player,play_user1,play_user2,name_val1,name_val2)
-
     back_main=Button(frame_player, bg='black', fg='red', text="BACK", command=lambda:show_frame(frame_main), font=('arial',20,'bold') ,width=19,height=1)
     back_main.grid(row=9,columnspan=4)
+
+# a 3x3 grid to play on.
+# passing 2 buttons as parameters to help toggle at every chance.
+    draw_grid.draw_grid(frame_player,play_user1,play_user2,name_val1,name_val2,back_main)
 
 def main_body():
     global window

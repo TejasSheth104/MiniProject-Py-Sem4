@@ -28,13 +28,14 @@ def win_cond(terminate,player1,player2,counter,keypress_count,name_val1,name_val
     
         for j in list(i):
             
-            moves_left=9-counter
-            final_score=moves_left*5
-
 # check if ANY player has matched with the winning condition.    
             play1=all(poss in player1 for poss in j)
             play2=all(poss in player2 for poss in j)
             # draw=all(poss in player1 for poss in j) or all(poss in player2 for poss in j)
+            
+            moves_left=9-counter
+            final_score=moves_left*5
+            
             if play1:
                 showinfo("RESULT - ",str(name_val1+" WINS. !!!"))
                 terminate=True

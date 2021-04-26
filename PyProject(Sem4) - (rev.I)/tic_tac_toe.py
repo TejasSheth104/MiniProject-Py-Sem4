@@ -1,63 +1,25 @@
 from tkinter import *
-from TicTacToe import draw_grid
+from TicTacToe import draw_grid,score_file
 
 window=Tk()
 
 def show_frame(frame):
     frame.tkraise()
 
-# def score(input_name1,input_name2,frame_main,frame_score):
-#     name_val1=input_name1.get()
-#     name_val2=input_name2.get()
+def score(input_name1,input_name2,frame_main,frame_score):
+    name_val1=input_name1.get()
+    name_val2=input_name2.get()
 
-#     frame_score.tkraise()
-#     ScoreBoard=Label(frame_score,text= "ScoreBoard" ,bg='black', fg='red',bd=1,relief="sunken",font=('arial',20,'bold') ,width=19,height=2)
-#     ScoreBoard.grid(row=1,columnspan=4)
-#     fh=open('PyProject(Sem4) - (rev.I)\score.txt','r')
-#     line=1
-#     for line in fh:
-#         print(line)
-#         label=Label(frame_score,text=line,font=('arial',20,'bold'),width=10,height=2)
-#         label.grid(row=1,columnspan=1)
-        
+    frame_score.tkraise()
+    ScoreBoard=Label(frame_score,text= "ScoreBoard" ,bg='black', fg='red',bd=1,relief="sunken",font=('arial',20,'bold') ,width=19,height=2)
+    # ScoreBoard.grid(row=1,columnspan=4)
+    ScoreBoard.place(x=0,y=0,relwidth=1)
 
+    score_file.get_scores(frame_score)
 
-    # count = 0
-    # for line in fh:
-    #     if line != "\n":
-    #         count = count + 1
-    # #fh.close()
-    # print(count)
-    # line = fh.readlines()
-    # print(line)
-    # score_display=Label(frame_score,text=line,font=('arial',20,'bold'),anchor=CENTER ,justify=CENTER ,width=15,height=10)
-    # score_display.grid(row=4,column=1)
-
-    # for line in fh.readlinesine:
-    #     line = fh.readlines()
-    #     score_display=Label(frame_score,textvariable=line,font=('arial',20,'bold'),anchor=CENTER ,justify=CENTER ,width=10,height=2)
-    #     score_display.grid(row=4,column=1)
-        # line=line+1
-        #print(line)
-
-# def score(input_name1,input_name2,frame_main,frame_score):
-#     name_val1=input_name1.get()
-#     name_val2=input_name2.get()
-
-#     frame_score.tkraise()
-#     ScoreBoard=Label(frame_score,text= "ScoreBoard" ,bg='black', fg='red',bd=1,relief="sunken",font=('arial',20,'bold') ,width=19,height=2)
-#     ScoreBoard.grid(row=1,columnspan=4)
-#     back=Button(frame_score, bg='black', fg='red', text="BACK", command=lambda:show_frame(frame_main), font=('arial',20,'bold') ,width=19,height=1)
-#     back.grid(row=90,columnspan=4)
-
-#     fh=open('score.txt','r')   
-#     content = fh.readlines()
-#     label1=Label(frame_score,text=content[2],font=('arial',20,'bold'),width=10,height=2)
-#     label2=Label(frame_score,text=content[1],font=('arial',20,'bold'),width=10,height=2)
-#     label3=Label(frame_score,text=content[0],font=('arial',20,'bold'),width=10,height=2)
-#     label1.grid(row=4)
-#     label2.grid(row=6)
-#     label3.grid(row=8)
+    back=Button(frame_score, bg='black', fg='red', text="BACK", command=lambda:show_frame(frame_main), font=('arial',20,'bold') ,width=19,height=1)
+    # back.grid(row=90,columnspan=4)
+    back.pack(side="bottom")
 
 def submit(input_name1,input_name2,frame_main,frame_player):
     name_val1=input_name1.get()
@@ -82,9 +44,9 @@ def submit(input_name1,input_name2,frame_main,frame_player):
 def main_body():
     global window
     window.title("Tic Tac Toe")
-    window.geometry("333x445")
-    window.resizable(height=0,width=0)
-   # window.configure(bg="black")
+    window.geometry("333x480")
+    # window.resizable(height=0,width=0)
+    # window.configure(bg="black")
     frame_main=Frame(window)
     frame_player=Frame(window,bg='black')
     frame_detail=Frame(window,bg='black')
@@ -111,7 +73,7 @@ def main_body():
 
     start_button=Button(frame_main, bg='black', fg='red', text="START", bd=1,relief="sunken", font=('arial',20,'bold') ,width=19,height=1, command=lambda: submit(input_name1,input_name2,frame_main,frame_player))
     start_button.grid(row=4, columnspan=4)
-
+    
     scoreboard_button=Button(frame_main,bg='black',fg='red',text="ScoreBoard",bd=1,relief="sunken",font=('arial',20,'bold'),width=19,height=1,command= lambda: score(input_name1,input_name2,frame_main,frame_score) )
     scoreboard_button.grid(row=5,columnspan=4)
 

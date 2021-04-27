@@ -65,12 +65,15 @@ def get_scores(frame_score):
 '''
 # 1. disable START button (need to work on this)
 # 2. scoreboard is tooo bad, change it.
-
-4. remove, replay option
-5. remove Thank You mbox
+3. scoring method.
+    3 moves = 5 pts
+    4 moves = 3 pts
+    5 moves = 1 pt
+# 4. remove, replay option
+# 5. remove Thank You mbox
 X# 6. implement scrollbar (if possible)
 7. check file for same names!!!
-8. validate name! in tic_tac_toe.py
+# 8. validate name! in tic_tac_toe.py
 9.
 
 '''

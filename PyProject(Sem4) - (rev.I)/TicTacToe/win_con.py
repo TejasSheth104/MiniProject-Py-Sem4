@@ -37,9 +37,7 @@ def win_cond(terminate,player1,player2,counter,keypress_count,name_val1,name_val
             final_score=moves_left*5
             
             if play1:
-                msg=showinfo("RESULT - ",str(name_val1+" WINS. !!!"))
-                # if msg=='Ok':
-                #     print("win condition ---")
+                showinfo("RESULT - ",str(name_val1+" WINS. !!!"))
                 terminate=True
                 score_file.score_save(name_val1,final_score)
                 return terminate

@@ -1,7 +1,6 @@
 from tkinter import *
 from TicTacToe import draw_grid,score_file
-# import os
-# import sys
+from tkinter.messagebox import *
 
 window=Tk()
 count=0
@@ -32,8 +31,11 @@ def score(input_name1,input_name2,frame_main,frame_score):
     # back.pack(side="bottom")
 
 def submit(input_name1,input_name2,frame_main,frame_player,start_button):
-    name_val1=input_name1.get()
-    name_val2=input_name2.get()
+    # try:
+    name_val1=input_name1.get().split[0]
+    name_val2=input_name2.get().split[0]
+    # except TypeError:
+    #     showwarning("INVALID NAME - ","Input Player Name(s)")
 
     frame_player.tkraise()
     
@@ -49,19 +51,19 @@ def submit(input_name1,input_name2,frame_main,frame_player,start_button):
 
 # a 3x3 grid to play on.
 # passing 2 buttons as parameters to help toggle at every chance.
-    draw_grid.draw_grid(frame_player,play_user1,play_user2,name_val1,name_val2,back_main,start_button)
+    draw_grid.draw_grid(frame_player,frame_main,play_user1,play_user2,name_val1,name_val2,back_main,start_button)
 
-def pre_submit(input_name1,input_name2,frame_main,frame_player,start_button):
-    global window,count
-    count+=1
-    print(count)
-    if count==1:
-        print("inside if")
-        submit(input_name1,input_name2,frame_main,frame_player,start_button)
-    else:
-        print("inside else")
-        if window.destroy():
-            print("window destroyed")
+# def pre_submit(input_name1,input_name2,frame_main,frame_player,start_button):
+#     global window,count
+#     count+=1
+#     print(count)
+#     if count==1:
+#         print("inside if")
+#         submit(input_name1,input_name2,frame_main,frame_player,start_button)
+#     else:
+#         print("inside else")
+#         if window.destroy():
+#             print("window destroyed")
 
 def main_body():
     global window
@@ -93,7 +95,7 @@ def main_body():
     input_name2=Entry(frame_main,bd="5" ,relief="sunken")
     input_name2.grid(row=3,column=2)
 
-    start_button=Button(frame_main, bg='black', fg='red', text="START", bd=1,relief="sunken", font=('arial',20,'bold') ,width=19,height=1, command=lambda: pre_submit(input_name1,input_name2,frame_main,frame_player,start_button))
+    start_button=Button(frame_main, bg='black', fg='red', text="START", bd=1,relief="sunken", font=('arial',20,'bold') ,width=19,height=1, command=lambda: submit(input_name1,input_name2,frame_main,frame_player,start_button))
     start_button.grid(row=4, columnspan=4)
     
     scoreboard_button=Button(frame_main,bg='black',fg='red',text="ScoreBoard",bd=1,relief="sunken",font=('arial',20,'bold'),width=19,height=1,command= lambda: score(input_name1,input_name2,frame_main,frame_score) )

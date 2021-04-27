@@ -19,7 +19,7 @@ def limit_keypress(keypress_count,box_key):
     else:
         return False
 
-def key_press(frame_player,box_num,place_value,button_play1,button_play2,name_val1,name_val2,back_main,start_button):
+def key_press(frame_main,box_num,place_value,button_play1,button_play2,name_val1,name_val2,back_main,start_button):
 
     global counter,keypress_count,player1,player2,terminate,p_val
 
@@ -38,15 +38,15 @@ def key_press(frame_player,box_num,place_value,button_play1,button_play2,name_va
 
 # # reset every parameter, and call the Grid Function to restart.
 #             if msg=='yes':
-#                 terminate=False
-#                 counter=0
-#                 p_val=""
-#                 player1,player2=list(),list()
-#                 keypress_count={1:0,2:0,3:0,4:0,5:0,6:0,7:0,8:0,9:0}
+            terminate=False
+            counter=0
+            p_val=""
+            player1,player2=list(),list()
+            keypress_count={1:0,2:0,3:0,4:0,5:0,6:0,7:0,8:0,9:0}
 #                 draw_grid.draw_grid(frame_player,button_play1,button_play2,name_val1,name_val2,back_main,start_button)
 
 # # thank you message and exit.
 #             elif msg=='no':
 #                 showinfo("EXIT","THANK YOU. !!!")
 #                 
-            Frame.destroy(frame_player)
+            Frame.tkraise(frame_main)

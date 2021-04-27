@@ -1,27 +1,37 @@
 from tkinter import *
 from TicTacToe import draw_grid,score_file
+# import os
+# import sys
 
 window=Tk()
+count=0
+
+def show_frameNwindow(window,frame):
+    window.title("Tic Tac Toe")
+    frame.tkraise()
 
 def show_frame(frame):
     frame.tkraise()
 
 def score(input_name1,input_name2,frame_main,frame_score):
+    global window
     name_val1=input_name1.get()
     name_val2=input_name2.get()
 
     frame_score.tkraise()
-    ScoreBoard=Label(frame_score,text= "ScoreBoard" ,bg='black', fg='red',bd=1,relief="sunken",font=('arial',20,'bold') ,width=19,height=2)
+    window.title("ScoreBoard")
+
+    # ScoreBoard=Label(frame_score,text= "ScoreBoard" ,bg='black', fg='red',bd=1,relief="sunken",font=('arial',20,'bold') ,width=19,height=2)
     # ScoreBoard.grid(row=1,columnspan=4)
-    ScoreBoard.place(x=0,y=0,relwidth=1)
+    # ScoreBoard.place(x=0,y=0,relwidth=1)
 
     score_file.get_scores(frame_score)
 
-    back=Button(frame_score, bg='black', fg='red', text="BACK", command=lambda:show_frame(frame_main), font=('arial',20,'bold') ,width=19,height=1)
-    # back.grid(row=90,columnspan=4)
-    back.pack(side="bottom")
+    back=Button(frame_score, bg='black', fg='red', text="BACK", command=lambda:show_frameNwindow(window,frame_main), font=('arial',20,'bold') ,width=19,height=1)
+    back.grid(row=15,columnspan=4)
+    # back.pack(side="bottom")
 
-def submit(input_name1,input_name2,frame_main,frame_player):
+def submit(input_name1,input_name2,frame_main,frame_player,start_button):
     name_val1=input_name1.get()
     name_val2=input_name2.get()
 
@@ -39,7 +49,19 @@ def submit(input_name1,input_name2,frame_main,frame_player):
 
 # a 3x3 grid to play on.
 # passing 2 buttons as parameters to help toggle at every chance.
-    draw_grid.draw_grid(frame_player,play_user1,play_user2,name_val1,name_val2,back_main)
+    draw_grid.draw_grid(frame_player,play_user1,play_user2,name_val1,name_val2,back_main,start_button)
+
+def pre_submit(input_name1,input_name2,frame_main,frame_player,start_button):
+    global window,count
+    count+=1
+    print(count)
+    if count==1:
+        print("inside if")
+        submit(input_name1,input_name2,frame_main,frame_player,start_button)
+    else:
+        print("inside else")
+        if window.destroy():
+            print("window destroyed")
 
 def main_body():
     global window
@@ -71,7 +93,7 @@ def main_body():
     input_name2=Entry(frame_main,bd="5" ,relief="sunken")
     input_name2.grid(row=3,column=2)
 
-    start_button=Button(frame_main, bg='black', fg='red', text="START", bd=1,relief="sunken", font=('arial',20,'bold') ,width=19,height=1, command=lambda: submit(input_name1,input_name2,frame_main,frame_player))
+    start_button=Button(frame_main, bg='black', fg='red', text="START", bd=1,relief="sunken", font=('arial',20,'bold') ,width=19,height=1, command=lambda: pre_submit(input_name1,input_name2,frame_main,frame_player,start_button))
     start_button.grid(row=4, columnspan=4)
     
     scoreboard_button=Button(frame_main,bg='black',fg='red',text="ScoreBoard",bd=1,relief="sunken",font=('arial',20,'bold'),width=19,height=1,command= lambda: score(input_name1,input_name2,frame_main,frame_score) )
@@ -88,3 +110,6 @@ def main_body():
 # starting of the program.
 if __name__ == '__main__':
     main_body()
+# Run a new iteration of the current script, 
+# providing any command line args from the current iteration.
+    # os.execv(__file__,sys.argv)

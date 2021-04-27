@@ -1,3 +1,64 @@
+def check_win(terminate,player1,player2,counter,name_val1,name_val2,j):
+    play1=all(poss in player1 for poss in j)
+    play2=all(poss in player2 for poss in j)
+            # draw=all(poss in player1 for poss in j) or all(poss in player2 for poss in j)
+            
+    moves_left=9-counter
+    final_score=moves_left*5
+            
+    if play1:
+        msg=showinfo("RESULT - ",str(name_val1+" WINS. !!!"))
+          # if msg=='Ok':
+               #     print("win condition ---")
+        terminate=True
+        score_file.score_save(name_val1,final_score)
+        return terminate
+    
+    elif play2:
+        showinfo("RESULT - ",str(name_val2+" WINS. !!!"))
+        terminate=True
+        score_file.score_save(name_val2,final_score)
+        return terminate
+
+
+# using scrollbar?!
+
+    # ls_content=list()
+    # try:
+    #     fh=open('score.txt','r')
+    #     contents=fh.readlines()
+    #     for value in contents:
+    #         ls_content.append(str(value).strip("\n"))
+    #     print(ls_content)
+
+    #     scrollbar = Scrollbar(frame_score)
+    #     scrollbar.pack(side=RIGHT,fill=Y)
+
+    #     mylist=Listbox(frame_score,yscrollcommand=scrollbar.set )
+    #     for line in range(len(ls_content)):
+    #        mylist.insert(END,ls_content[line])
+
+    #     mylist.place()
+    #     scrollbar.config(command=mylist.yview )
+    # except FileNotFoundError:
+    #     print("File Not Found")
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 # def score(input_name1,input_name2,frame_main,frame_score):
 #     name_val1=input_name1.get()
 #     name_val2=input_name2.get()
@@ -50,3 +111,8 @@
 #     label1.grid(row=4)
 #     label2.grid(row=6)
 #     label3.grid(row=8)
+
+3. update scoring method.
+    3 moves = 5 pts
+    4 moves = 3 pts
+    5 moves = 1 pt

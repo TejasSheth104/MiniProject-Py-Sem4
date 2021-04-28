@@ -1,0 +1,205 @@
+
+'''
+# 1. disable START button (need to work on this)
+# 2. scoreboard is tooo bad, change it.
+3. scoring method.
+    3 moves = 5 pts
+    4 moves = 3 pts
+    5 moves = 1 pt
+# 4. remove, replay option
+# 5. remove Thank You mbox
+X# 6. implement scrollbar (if possible)
+7. check file for same names!!!
+# 8. validate name! in tic_tac_toe.py
+9.
+
+'''
+
+def score_save2(player_name,final_score):
+    # # count=0
+    # try:
+    #     # update score, if name is same (case independent)
+    #     fh=open("score.txt","r")
+    #     for line in fh:
+    #         content_line=line.strip("\n").split(" : ")
+    #         # print(content_line)
+    #         if str(player_name).title()==str(content_line[0]).title():
+    #             # print("string Match, independent of case.")
+    #             player_name=player_name.title()
+    #             final_score=final_score+int(content_line[1])
+    #             # replace_str=player_name+" : "+str(final_score)
+    #             # line.replace(line, replace_str)
+    #             lines=fh.readlines()
+    #             print(lines)
+    #             fh2=open('score.txt','w')
+    #             lines.remove(content_line)
+    #             fh2.close()
+    #             break
+    #             # print(player_name,final_score)
+    #         # count+=1
+    #     fh.close()
+
+    #     fh3=open('score.txt','a')
+    #     fh3.write(player_name.title()+" : "+str(final_score)+"\n")
+    #     fh3.close()
+    # except FileNotFoundError:
+    #     print("File Not Found")
+    count=-1
+    fh1=open('score.txt','r')
+    data=fh1.read()
+    # print(data)
+    data=data.replace(player_name+" : 10\n",player_name+" : "+str(final_score))
+    # for line in data:
+    #     count+=1
+    #     print(line)
+    #     old_str=line
+    #     line=line.strip("\n").split(" : ")
+    #     if str(player_name).title()==str(line[0]).title():
+    #         # old_str=line
+    #         player_name=player_name.title()
+    #         final_score=final_score+int(line[1])
+    #         new_str=player_name+" : "+str(final_score)+"\n"
+    #         data=data[count].replace(old_str,new_str)
+    #         break
+    fh1.close()
+    fh2=open('score.txt','w')
+    fh2.write(str(data))
+    fh2.write(player_name.title()+" : "+str(final_score)+"\n")
+    fh2.close()
+
+    # fh=open("score.txt","r")
+    # lines=fh.readlines()
+    # print(lines)
+
+    # fh.close()
+
+    # fh2=open("score2.txt","a")
+    # for line in lines:
+    #     temp_v1=line.strip("\n").split(" : ")
+    #     if player_name.title()==temp_v1[0].title():
+    #         final_score=final_score+int(temp_v1[1])
+    # fh2.write(player_name.title()+" : "+str(final_score)+"\n")
+    
+    # fh2.close()
+
+
+
+
+def check_win(terminate,player1,player2,counter,name_val1,name_val2,j):
+    play1=all(poss in player1 for poss in j)
+    play2=all(poss in player2 for poss in j)
+            # draw=all(poss in player1 for poss in j) or all(poss in player2 for poss in j)
+            
+    moves_left=9-counter
+    final_score=moves_left*5
+            
+    if play1:
+        msg=showinfo("RESULT - ",str(name_val1+" WINS. !!!"))
+          # if msg=='Ok':
+               #     print("win condition ---")
+        terminate=True
+        score_file.score_save(name_val1,final_score)
+        return terminate
+    
+    elif play2:
+        showinfo("RESULT - ",str(name_val2+" WINS. !!!"))
+        terminate=True
+        score_file.score_save(name_val2,final_score)
+        return terminate
+
+
+# using scrollbar?!
+
+    # ls_content=list()
+    # try:
+    #     fh=open('score.txt','r')
+    #     contents=fh.readlines()
+    #     for value in contents:
+    #         ls_content.append(str(value).strip("\n"))
+    #     print(ls_content)
+
+    #     scrollbar = Scrollbar(frame_score)
+    #     scrollbar.pack(side=RIGHT,fill=Y)
+
+    #     mylist=Listbox(frame_score,yscrollcommand=scrollbar.set )
+    #     for line in range(len(ls_content)):
+    #        mylist.insert(END,ls_content[line])
+
+    #     mylist.place()
+    #     scrollbar.config(command=mylist.yview )
+    # except FileNotFoundError:
+    #     print("File Not Found")
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+# def score(input_name1,input_name2,frame_main,frame_score):
+#     name_val1=input_name1.get()
+#     name_val2=input_name2.get()
+
+#     frame_score.tkraise()
+#     ScoreBoard=Label(frame_score,text= "ScoreBoard" ,bg='black', fg='red',bd=1,relief="sunken",font=('arial',20,'bold') ,width=19,height=2)
+#     ScoreBoard.grid(row=1,columnspan=4)
+#     fh=open('PyProject(Sem4) - (rev.I)\score.txt','r')
+#     line=1
+#     for line in fh:
+#         print(line)
+#         label=Label(frame_score,text=line,font=('arial',20,'bold'),width=10,height=2)
+#         label.grid(row=1,columnspan=1)
+        
+
+
+    # count = 0
+    # for line in fh:
+    #     if line != "\n":
+    #         count = count + 1
+    # #fh.close()
+    # print(count)
+    # line = fh.readlines()
+    # print(line)
+    # score_display=Label(frame_score,text=line,font=('arial',20,'bold'),anchor=CENTER ,justify=CENTER ,width=15,height=10)
+    # score_display.grid(row=4,column=1)
+
+    # for line in fh.readlinesine:
+    #     line = fh.readlines()
+    #     score_display=Label(frame_score,textvariable=line,font=('arial',20,'bold'),anchor=CENTER ,justify=CENTER ,width=10,height=2)
+    #     score_display.grid(row=4,column=1)
+        # line=line+1
+        #print(line)
+
+# def score(input_name1,input_name2,frame_main,frame_score):
+#     name_val1=input_name1.get()
+#     name_val2=input_name2.get()
+
+#     frame_score.tkraise()
+    # ScoreBoard=Label(frame_score,text= "ScoreBoard" ,bg='black', fg='red',bd=1,relief="sunken",font=('arial',20,'bold') ,width=19,height=2)
+    # ScoreBoard.grid(row=1,columnspan=4)
+    # back=Button(frame_score, bg='black', fg='red', text="BACK", command=lambda:show_frame(frame_main), font=('arial',20,'bold') ,width=19,height=1)
+    # back.grid(row=90,columnspan=4)
+
+#     fh=open('score.txt','r')   
+#     content = fh.readlines()
+#     label1=Label(frame_score,text=content[2],font=('arial',20,'bold'),width=10,height=2)
+#     label2=Label(frame_score,text=content[1],font=('arial',20,'bold'),width=10,height=2)
+#     label3=Label(frame_score,text=content[0],font=('arial',20,'bold'),width=10,height=2)
+#     label1.grid(row=4)
+#     label2.grid(row=6)
+#     label3.grid(row=8)
+
+3. update scoring method.
+    3 moves = 5 pts
+    4 moves = 3 pts
+    5 moves = 1 pt

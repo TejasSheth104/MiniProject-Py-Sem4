@@ -53,15 +53,12 @@ def win_cond(terminate,player1,player2,counter,keypress_count,name_val1,name_val
                     for j in list(i):
                         play1=all(poss in player1 for poss in j)
                         play2=all(poss in player2 for poss in j)
-            # draw=all(poss in player1 for poss in j) or all(poss in player2 for poss in j)
-            
+
                         moves_left=9-counter
                         final_score=moves_left*5
             
                         if play1:
                             msg=showinfo("RESULT - ",str(name_val1+" WINS. !!!"))
-                # if msg=='Ok':
-                #     print("win condition ---")
                             terminate=True
                             score_file.score_save(name_val1,final_score)
                             return terminate
@@ -71,7 +68,6 @@ def win_cond(terminate,player1,player2,counter,keypress_count,name_val1,name_val
                             terminate=True
                             score_file.score_save(name_val2,final_score)
                             return terminate
-
 
                 showinfo("RESULT - ",str(" DRAW "))
                 terminate=True

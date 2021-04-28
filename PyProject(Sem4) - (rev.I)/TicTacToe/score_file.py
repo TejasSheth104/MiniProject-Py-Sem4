@@ -1,12 +1,29 @@
 from tkinter import *
+import fileinput
 
-def score_save(player_name,final_score):
-    try:
-        fh=open('score.txt','a')
-        fh.write(player_name+" : "+str(final_score)+"\n")
-        fh.close()
-    except FileNotFoundError:
-        print("File Not Found")
+def score_save(player_name,score):
+    normal_write=True
+    fh=open("score.txt","r")
+    lines=fh.readlines()
+    for line in lines:
+        temp_v1=line.strip("\n").split(" : ")
+        if player_name.title()==temp_v1[0].title():
+            final_score=score+int(temp_v1[1])
+            normal_write=False
+            break
+    fh.close()
+
+    with fileinput.FileInput("score.txt",inplace=True,backup=".bak") as f:
+        for line in f:
+            if str(player_name).upper() in str(line).upper():
+                print(str(player_name).upper()+" : "+str(final_score), end="\n")
+            else:
+                print(line,end="")
+
+    if normal_write:
+        fh3=open('score.txt','a')
+        fh3.write(player_name.upper()+" : "+str(score)+"\n")
+        fh3.close()
 
 def get_scores(frame_score):
 # below is a working SCOREBORAD, max at 4 entries.
@@ -60,20 +77,3 @@ def get_scores(frame_score):
         fh.close()
     except FileNotFoundError:
         print("File Not Found")
-
-
-'''
-# 1. disable START button (need to work on this)
-# 2. scoreboard is tooo bad, change it.
-3. scoring method.
-    3 moves = 5 pts
-    4 moves = 3 pts
-    5 moves = 1 pt
-# 4. remove, replay option
-# 5. remove Thank You mbox
-X# 6. implement scrollbar (if possible)
-7. check file for same names!!!
-# 8. validate name! in tic_tac_toe.py
-9.
-
-'''

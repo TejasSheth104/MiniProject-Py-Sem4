@@ -32,8 +32,8 @@ def score(input_name1,input_name2,frame_main,frame_score):
 
 def submit(input_name1,input_name2,frame_main,frame_player,start_button):
     # try:
-    name_val1=input_name1.get().split[0]
-    name_val2=input_name2.get().split[0]
+    name_val1=input_name1.get().split()[0]
+    name_val2=input_name2.get().split()[0]
     # except TypeError:
     #     showwarning("INVALID NAME - ","Input Player Name(s)")
 

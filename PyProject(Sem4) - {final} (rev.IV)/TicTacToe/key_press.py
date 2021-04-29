@@ -48,5 +48,5 @@ def key_press(frame_main,box_num,place_value,button_play1,button_play2,name_val1
 # # thank you message and exit.
 #             elif msg=='no':
 #                 showinfo("EXIT","THANK YOU. !!!")
-#
+#                 
             Frame.tkraise(frame_main)

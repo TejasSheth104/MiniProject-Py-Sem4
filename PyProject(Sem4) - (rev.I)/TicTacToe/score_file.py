@@ -12,8 +12,8 @@ def score_save(player_name,score):
             normal_write=False
             break
     fh.close()
-
-    with fileinput.FileInput("score.txt",inplace=True,backup=".bak") as f:
+# ,backup=".bak" - 3rd parameter
+    with fileinput.FileInput("score.txt",inplace=True) as f:
         for line in f:
             if str(player_name).upper() in str(line).upper():
                 print(str(player_name).upper()+" : "+str(final_score), end="\n")
@@ -70,7 +70,7 @@ def get_scores(frame_score):
         if length_list>10:
             length_list=10
         for x in range(length_list):
-            display_label=Label(frame_score,text=str(sorted_list[x]),fg='red',bd=1,relief="sunken",font=('arial',20,'bold'),width=19,height=1)
+            display_label=Label(frame_score,text=str(sorted_list[x]),fg='black',bd=1,relief="sunken",font=('arial',20,'bold'),width=19,height=1)
             display_label.grid(row=row_no,columnspan=4)
             row_no+=1
 

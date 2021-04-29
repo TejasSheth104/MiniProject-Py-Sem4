@@ -1,10 +1,7 @@
 from tkinter import *
 
-counter=0
-
-def chance(player1,player2,box_num,button_play1,button_play2):
+def chance(player1,player2,box_num,button_play1,button_play2,counter):
     
-    global counter
 # iterate over 1 to 9, to Toggle Button and Check for Players Chance
     for box_num_value in range(1,10):
     

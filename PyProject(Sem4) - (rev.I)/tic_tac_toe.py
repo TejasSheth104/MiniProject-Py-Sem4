@@ -3,7 +3,6 @@ from TicTacToe import draw_grid,score_file
 from tkinter.messagebox import *
 
 window=Tk()
-count=0
 
 def show_frameNwindow(window,frame):
     window.title("Tic Tac Toe")
@@ -24,10 +23,13 @@ def score(input_name1,input_name2,frame_main,frame_score):
     # ScoreBoard.grid(row=1,columnspan=4)
     # ScoreBoard.place(x=0,y=0,relwidth=1)
 
-    score_file.get_scores(frame_score)
-
     back=Button(frame_score, bg='black', fg='red', text="BACK", command=lambda:show_frameNwindow(window,frame_main), font=('arial',20,'bold') ,width=19,height=1)
     back.grid(row=15,columnspan=4)
+
+    score_file.get_scores(frame_score)
+
+    # back=Button(frame_score, bg='black', fg='red', text="BACK", command=lambda:show_frameNwindow(window,frame_main), font=('arial',20,'bold') ,width=19,height=1)
+    # back.grid(row=15,columnspan=4)
     # back.pack(side="bottom")
 
 def submit(input_name1,input_name2,frame_main,frame_player,start_button):
@@ -94,7 +96,7 @@ def main_body():
     name2.grid(row=3,column=1,sticky='w')
     input_name2=Entry(frame_main,bd="5" ,relief="sunken")
     input_name2.grid(row=3,column=2)
-
+#submit(input_name1,input_name2,frame_main,frame_player,start_button)
     start_button=Button(frame_main, bg='black', fg='red', text="START", bd=1,relief="sunken", font=('arial',20,'bold') ,width=19,height=1, command=lambda: submit(input_name1,input_name2,frame_main,frame_player,start_button))
     start_button.grid(row=4, columnspan=4)
     

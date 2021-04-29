@@ -24,6 +24,9 @@ def win_cond(terminate,player1,player2,counter,keypress_count,name_val1,name_val
     poss_7=permutations([2,5,8])
     poss_8=permutations([3,6,9])
     
+    moves_left=9-counter
+    final_score=moves_left*5
+    
     for i in poss_1,poss_2,poss_3,poss_4,poss_5,poss_6,poss_7,poss_8:
     
         for j in list(i):
@@ -31,40 +34,36 @@ def win_cond(terminate,player1,player2,counter,keypress_count,name_val1,name_val
 # check if ANY player has matched with the winning condition.    
             play1=all(poss in player1 for poss in j)
             play2=all(poss in player2 for poss in j)
-            # draw=all(poss in player1 for poss in j) or all(poss in player2 for poss in j)
-            
-            moves_left=9-counter
-            final_score=moves_left*5
             
             if play1:
-                showinfo("RESULT - ",str(name_val1+" WINS. !!!"))
+                showinfo("RESULT - ",str((name_val1).upper()+" WINS. !!!"))
                 terminate=True
                 score_file.score_save(name_val1,final_score)
                 return terminate
     
             elif play2:
-                showinfo("RESULT - ",str(name_val2+" WINS. !!!"))
+                showinfo("RESULT - ",str((name_val2).upper()+" WINS. !!!"))
                 terminate=True
                 score_file.score_save(name_val2,final_score)
                 return terminate
 
             elif check_draw(keypress_count):
+                
                 for i in poss_1,poss_2,poss_3,poss_4,poss_5,poss_6,poss_7,poss_8:
+                
                     for j in list(i):
+                
                         play1=all(poss in player1 for poss in j)
                         play2=all(poss in player2 for poss in j)
 
-                        moves_left=9-counter
-                        final_score=moves_left*5
-            
                         if play1:
-                            msg=showinfo("RESULT - ",str(name_val1+" WINS. !!!"))
+                            msg=showinfo("RESULT - ",str((name_val1).upper()+" WINS. !!!"))
                             terminate=True
                             score_file.score_save(name_val1,final_score)
                             return terminate
     
                         elif play2:
-                            showinfo("RESULT - ",str(name_val2+" WINS. !!!"))
+                            showinfo("RESULT - ",str((name_val2).upper()+" WINS. !!!"))
                             terminate=True
                             score_file.score_save(name_val2,final_score)
                             return terminate

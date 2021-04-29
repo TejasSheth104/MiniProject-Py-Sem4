@@ -27,7 +27,7 @@ def key_press(frame_main,box_num,place_value,button_play1,button_play2,name_val1
 
 # if value of dictionary is 1 already(returning Value FALSE.), no change takes place.
     if limit_keypress(keypress_count,box_num):
-        p_val,counter=chance.chance(player1,player2,box_num,button_play1,button_play2)
+        p_val,counter=chance.chance(player1,player2,box_num,button_play1,button_play2,counter)
         place_value.set(p_val)
 
         back_main.config(state=DISABLED)

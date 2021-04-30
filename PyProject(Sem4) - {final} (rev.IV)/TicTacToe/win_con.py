@@ -5,11 +5,15 @@ from TicTacToe import score_file
 
 # check if Dictionary Values are all 1 or not?
 def check_draw(keypress_count):
+    
     for value in keypress_count.values():
+
         if value==0:
             return False
+
         elif value==1:
             continue
+    
     return True
 
 def win_cond(terminate,player1,player2,counter,keypress_count,name_val1,name_val2):
@@ -57,7 +61,7 @@ def win_cond(terminate,player1,player2,counter,keypress_count,name_val1,name_val
                         play2=all(poss in player2 for poss in j)
 
                         if play1:
-                            msg=showinfo("RESULT - ",str((name_val1).upper()+" WINS. !!!"))
+                            showinfo("RESULT - ",str((name_val1).upper()+" WINS. !!!"))
                             terminate=True
                             score_file.score_save(name_val1,final_score)
                             return terminate

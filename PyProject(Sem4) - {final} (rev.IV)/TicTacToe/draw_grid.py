@@ -2,6 +2,7 @@ from tkinter import *
 from TicTacToe import key_press
 
 def draw_grid(frame_player,frame_main,button_play1,button_play2,name_val1,name_val2,back_main,start_button):
+
 # 9 variables to set Button Value later (X/O)
     place_value1, place_value2, place_value3=StringVar(), StringVar(), StringVar()
     place_value4, place_value5, place_value6=StringVar(), StringVar(), StringVar()

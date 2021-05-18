@@ -2,9 +2,7 @@ from tkinter import *
 import fileinput
 
 def score_save(player_name,score):
-    fh=open('score.py','a')
-    fh.close()
-
+   
     normal_write=True
     fh=open("score.txt","r")
     lines=fh.readlines()
